@@ -1,0 +1,49 @@
+spring.application.name: 'spring-cloud-oauth2-sso-server-demo'
+spring.profiles.active: production
+
+app.name: spring-cloud-oauth2-sso-server-demo
+app.description: a spring-cloud + oatuh2 sso demo app
+
+server.port: 8541
+server.use-forward-headers: true
+server.compression.enabled: true
+
+endpoints.jmx.domain: spring-cloud-oauth2-sso-server-demo
+endpoints.jmx.unique-names: true
+
+management.port: 9541
+management.context-path: /
+
+security:
+  oauth2:
+    sso:
+      login-path: /login
+    client:
+      clientId: 75e1eb7ccdef293d49e3
+      clientSecret: 247870a5a97a04e4c8c921e126cb5a2ca93218c7
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://api.github.com/user
+      preferTokenInfo: false
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+
+#spring.boot.admin.url: http://localhost:9080
+
+# LOGGING
+logging.path: ./var/log
+logging.file: application.log
+logging.config: classpath:logback.xml
+logging.level.org.springframework: INFO

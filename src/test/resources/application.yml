@@ -1,0 +1,11 @@
+spring.application.name: 'spring-cloud-oauth2-sso-server-demo'
+spring.profiles.active: test
+
+app.name: spring-cloud-oauth2-sso-server-demo
+app.description: a spring-cloud + zuul demo app
+
+server.use-forward-headers: false
+server.compression.enabled: false
+
+endpoints.jmx.domain: spring-cloud-oauth2-sso-server-demo
+endpoints.jmx.unique-names: true
